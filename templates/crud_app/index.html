@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body_block %}
+    <h4>Student List</h4>
+    <ul>
+    {% if student_list %}
+          {% for student in student_list %}
+              <li><a href="{% url 'crud_app:student_info' id=student.id %}">{{ student.first_name }} {{ student.last_name }}</a></li>
+          {% endfor %}
+    {% else %}
+          <h4>There are no student</h4>
+    {% endif %}
+    </ul>
+{% endblock %}
